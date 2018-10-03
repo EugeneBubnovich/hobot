@@ -40,32 +40,82 @@
         z-index: 100;
     }
 
-    /*.keyline {*/
-        /*display: block;*/
-        /*position: absolute;*/
-        /*top: 1px;*/
-        /*left: 1px;*/
-        /*width: 238px;*/
-        /*height: 398px;*/
-        /*outline: 1px solid rgba(0, 0, 0, 0.4);*/
-        /*z-index: 1000;*/
-        /*pointer-events: none;*/
-    /*}*/
+    .keyline {
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 1198px;
+        height: 88px;
+        outline: 1px solid rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    .container {
+        width: 1200px;
+        height: 90px;
+        left: 50%;
+        margin-left: -600px !important;
+    }
 
     .scene {
         display: none;
     }
-    
+
     /* OVER ALL */
-    .logo{
-        background-image: url("img/logo.png");
+    .logo {
+        background-image: url(img/logo.png);
+        width: 184px;
+        height: 75px;
+        left: 508px;
+        top: 8px;
     }
-    
+
     .overAll {
         z-index: 100;
     }
 
     /* SCENE 1 */
+    .cat {
+        background-image: url("img/first.png");
+        width: 233px;
+        height: 194px;
+        left: 420px;
+        top: 10px;
+    }
+
+    .msg1 {
+        background-image: url("img/msg1.png");
+        width: 245px;
+        height: 48px;
+        left: 577px;
+        top: 25px;
+    }
+
+    .msg2 {
+        background-image: url("img/msg2.png");
+        width: 265px;
+        height: 48px;
+        left: 677px;
+        top: 25px;
+    }
+
+    .black {
+        background-image: url("img/four.png");
+        width: 136px;
+        height: 159px;
+        left: 910px;
+        top: 5px;
+    }
+
+    .logo-royal {
+        background-image: url("img/logo-royal.png");
+        width: 158px;
+        height: 47px;
+        left: 834px;
+        top: 23px;
+    }
 
 </style>
 
@@ -73,13 +123,16 @@
     <a href="#" target="_blank" class="linkarea">
         <div class="container">
             <div class="scene scene1">
-
+                <div class="msg1"></div>
+                <div class="msg2"></div>
+                <div class="cat"></div>
+                <div class="black"></div>
+                <div class="logo-royal"></div>
             </div>
 
             <div class="overAll">
+                <div class="logo"></div>
                 <div class="keyline"></div>
-                <div class="img logo"></div>
-                <div class="img legal"></div>
             </div>
         </div>
     </a>
@@ -91,10 +144,29 @@
         var tl = new TimelineLite();
 
         // SCENE 1
-        tl.add('scene1');
+        tl.addLabel('scene1');
         tl.set('.scene', {display: 'block'});
- 
-     
+
+        tl.from('.logo', 2, {opacity: 0}, 'scene1+=0');
+        tl.to('.logo', 2, {left: 113, ease: Cubic.easeOut}, 'scene1+=1.7');
+
+        tl.from('.cat', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.5');
+        tl.from('.black', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.9');
+
+
+        tl.from('.msg1', 1, {opacity: 0, ease: Cubic.easeOut}, 'scene1+=3.9');
+        tl.to('.msg1', .7, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=5.5');
+        tl.from('.msg2', 1, {opacity: 0, ease: Cubic.easeOut}, 'scene1+=6.5');
+        tl.to('.msg2', .7, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=8');
+
+        // SCENE 2
+        tl.addLabel('scene1', 'scene2+=9');
+
+        tl.to('.cat', 1, {scale: .4, x: -100, y: -60, ease: Cubic.easeOut}, 'scene2');
+//        tl.from('.black', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.9');
+
+        tl.from('.logo-royal', 1, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=2');
+
         // SCENE END
         // tl.addLabel('end', 'scene2+=10');
         // tl.to('.scene1', 0.5, {opacity: 0}, 'end');
