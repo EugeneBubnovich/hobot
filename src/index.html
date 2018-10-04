@@ -117,6 +117,23 @@
         top: 23px;
     }
 
+    /* SCENE 2 */
+    .purple {
+        background-image: url("img/second.png");
+        width: 53px;
+        height: 93px;
+        left: 493px;
+        top: 3px;
+    }
+
+    .white {
+        background-image: url("img/third.png");
+        width: 61px;
+        height: 94px;
+        left: 569px;
+        top: 2px;
+    }
+
 </style>
 
 <div id="html_banner">
@@ -127,6 +144,8 @@
                 <div class="msg2"></div>
                 <div class="cat"></div>
                 <div class="black"></div>
+                <div class="purple"></div>
+                <div class="white"></div>
                 <div class="logo-royal"></div>
             </div>
 
@@ -155,17 +174,20 @@
 
 
         tl.from('.msg1', 1, {opacity: 0, ease: Cubic.easeOut}, 'scene1+=3.9');
-        tl.to('.msg1', .7, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=5.5');
+        tl.to('.msg1', 1, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=5.5');
         tl.from('.msg2', 1, {opacity: 0, ease: Cubic.easeOut}, 'scene1+=6.5');
-        tl.to('.msg2', .7, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=8');
+        tl.to('.msg2', 1, {opacity: 0, y: -100, ease: Cubic.easeIn}, 'scene1+=8');
 
         // SCENE 2
         tl.addLabel('scene1', 'scene2+=9');
 
-        tl.to('.cat', 1, {scale: .4, x: -100, y: -60, ease: Cubic.easeOut}, 'scene2');
-//        tl.from('.black', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.9');
+        tl.to('.cat', 1, {scale: .4, x: -100, y: -60, ease: Cubic.easeInOut}, 'scene2');
+        tl.from('.purple', .7, {y: -100, ease: Cubic.easeInOut}, 'scene2+=.7');
+        tl.from('.white', .7, {y: 100, ease: Cubic.easeInOut}, 'scene2+=.7');
+        tl.to('.black', 1.5, {scale: .55, x: -290, y: -34, ease: Cubic.easeInOut}, 'scene2');
 
-        tl.from('.logo-royal', 1, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=2');
+
+        tl.from('.logo-royal', 1, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=.5');
 
         // SCENE END
         // tl.addLabel('end', 'scene2+=10');
