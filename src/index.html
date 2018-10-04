@@ -40,17 +40,17 @@
         z-index: 100;
     }
 
-    .keyline {
-        display: block;
-        position: absolute;
-        top: 1px;
-        left: 1px;
-        width: 1198px;
-        height: 88px;
-        outline: 1px solid rgba(0, 0, 0, 0.4);
-        z-index: 1000;
-        pointer-events: none;
-    }
+    /*.keyline {*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 1px;*/
+    /*left: 1px;*/
+    /*width: 1198px;*/
+    /*height: 88px;*/
+    /*outline: 1px solid rgba(0, 0, 0, 0.4);*/
+    /*z-index: 1000;*/
+    /*pointer-events: none;*/
+    /*}*/
 
     .container {
         width: 1200px;
@@ -66,10 +66,25 @@
     /* OVER ALL */
     .logo {
         background-image: url(img/logo.png);
-        width: 184px;
         height: 75px;
-        left: 508px;
         top: 8px;
+    }
+
+    .logo11 {
+        left: 508px;
+        width: 35px;
+    }
+
+    .logo12 {
+        background-position-x: -44px;
+        width: 101px;
+        left: 552px;
+    }
+
+    .logo13 {
+        background-position-x: -145px;
+        width: 40px;
+        left: 653px;
     }
 
     .overAll {
@@ -134,6 +149,39 @@
         top: 2px;
     }
 
+    .wrapper {
+        /*width: 157px;*/
+        width: 0;
+        left: 834px;
+        height: 29px;
+        background: #ff0d05;
+        top: 13px;
+    }
+
+    .logo-royal2 {
+        background-image: url("img/logo-royal2.png");
+        left: 834px;
+    }
+
+    .logo-royal21 {
+        top: 13px;
+        width: 140px;
+        height: 30px;
+    }
+
+    .logo-royal22 {
+        top: 50px;
+        height: 17px;
+        width: 270px;
+        background-position-y: -35px;
+    }
+
+    .logo-royal23 {
+        top: 70px;
+        height: 17px;
+        width: 270px;
+        background-position-y: -53px;
+    }
 </style>
 
 <div id="html_banner">
@@ -147,10 +195,18 @@
                 <div class="purple"></div>
                 <div class="white"></div>
                 <div class="logo-royal"></div>
+                <div class="wrapper"></div>
+                <div class="logo-royal2 logo-royal21"></div>
+                <div class="logo-royal2 logo-royal22"></div>
+                <div class="logo-royal2 logo-royal23"></div>
             </div>
 
             <div class="overAll">
-                <div class="logo"></div>
+                <div class="logo-container">
+                    <div class="logo logo11"></div>
+                    <div class="logo logo12"></div>
+                    <div class="logo logo13"></div>
+                </div>
                 <div class="keyline"></div>
             </div>
         </div>
@@ -166,8 +222,8 @@
         tl.addLabel('scene1');
         tl.set('.scene', {display: 'block'});
 
-        tl.from('.logo', 2, {opacity: 0}, 'scene1+=0');
-        tl.to('.logo', 2, {left: 113, ease: Cubic.easeOut}, 'scene1+=1.7');
+        tl.from('.logo-container', 2, {opacity: 0}, 'scene1+=0');
+        tl.to('.logo-container', 2, {left: -400, ease: Cubic.easeOut}, 'scene1+=1.7');
 
         tl.from('.cat', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.5');
         tl.from('.black', 1, {y: 85, ease: Cubic.easeOut}, 'scene1+=2.9');
@@ -186,15 +242,59 @@
         tl.from('.white', .7, {y: 100, ease: Cubic.easeInOut}, 'scene2+=.7');
         tl.to('.black', 1.5, {scale: .55, x: -290, y: -34, ease: Cubic.easeInOut}, 'scene2');
 
-
         tl.from('.logo-royal', 1, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=.5');
+        tl.to('.logo-royal', .3, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=3');
+
+
+        tl.to('.logo11', .2, {rotation: -3}, 'scene2+=.5');
+        tl.to('.logo11', .2, {rotation: 0}, 'scene2+=.7');
+
+        tl.to('.logo12', .2, {scale: 1.1, y: -5}, 'scene2+=.8');
+        tl.to('.logo12', .2, {scale: 1, y: 0}, 'scene2+=1');
+
+        tl.to('.logo13', .2, {scale: 1.1, y: -5}, 'scene2+=1.2');
+        tl.to('.logo13', .2, {scale: 1, y: 0}, 'scene2+=1.4');
+
+        tl.to('.wrapper', 1.5, {width: 156, ease: Cubic.easeInOut}, 'scene2+=3.5');
+        tl.from('.logo-royal21', .5, {opacity: 0, ease: Cubic.easeIn}, 'scene2+=4.5');
+
+
+        tl.from('.logo-royal22', 1, {opacity: 0, ease: Cubic.easeInOut}, 'scene2+=5.3');
+        tl.from('.logo-royal23', 1, {opacity: 0, ease: Cubic.easeInOut}, 'scene2+=6.2');
+
+        tl.to('.logo11', .2, {rotation: -3}, 'scene2+=7.2');
+        tl.to('.logo11', .2, {rotation: 0}, 'scene2+=7.4');
+
+        tl.to('.logo12', .2, {scale: 1.1, y: -5}, 'scene2+=7.6');
+        tl.to('.logo12', .2, {scale: 1, y: 0}, 'scene2+=7.8');
+
+        tl.to('.logo13', .2, {scale: 1.1, y: -5}, 'scene2+=8');
+        tl.to('.logo13', .2, {scale: 1, y: 0}, 'scene2+=8.2');
+
+
+        tl.to('.logo-royal21', .1, {opacity: 0}, 'scene2+=9.8');
+        tl.to('.cat, .black, .purple, .white, .logo-royal22, .logo-royal23, .wrapper', .7, {opacity: 0}, 'scene2+=9.8');
+        tl.to('.logo-container', 3, {left: 0, ease: Elastic.easeOut.config(.7, 0.3)}, 'scene2+=10.4');
+
+        // SCENE 3
+        tl.addLabel('scene2', 'scene3+=14');
+
+        tl.to('.logo11', .2, {rotation: -5}, 'scene3');
+        tl.to('.logo11', .2, {rotation: 0}, 'scene3+=.2');
+
+        tl.to('.logo12', .2, {scale: 1.15, y: -5}, 'scene3+=.3');
+        tl.to('.logo12', .2, {scale: 1, y: 0}, 'scene3+=.5');
+
+        tl.to('.logo13', .2, {scale: 1.15, y: -5}, 'scene3+=.7');
+        tl.to('.logo13', .2, {scale: 1, y: 0}, 'scene3+=.9');
+
 
         // SCENE END
-        // tl.addLabel('end', 'scene2+=10');
-        // tl.to('.scene1', 0.5, {opacity: 0}, 'end');
-        // tl.eventCallback('onComplete', function () {
-        //     this.restart();
-        // });
+        tl.addLabel('end', 'scene3+=3');
+        tl.to('.scene1, .logo', 0.5, {opacity: 0}, 'end');
+        tl.eventCallback('onComplete', function () {
+            this.restart();
+        });
     })();
 
 </script>
